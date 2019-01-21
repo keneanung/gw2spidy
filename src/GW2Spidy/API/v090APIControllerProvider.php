@@ -192,15 +192,6 @@ class v090APIControllerProvider implements ControllerProviderInterface {
                 }
             }
 
-            $total = $q->count();
-
-            if ($total > 0) {
-                $lastpage = ceil($total / $itemsperpage);
-            } else {
-                $page     = 1;
-                $lastpage = 1;
-            }
-
             $q->offset($itemsperpage * ($page-1))
               ->limit($itemsperpage);
 
@@ -214,8 +205,6 @@ class v090APIControllerProvider implements ControllerProviderInterface {
             $response = array(
                 'count'     => $count,
                 'page'      => $page,
-                'last_page' => $lastpage,
-                'total'     => $total,
                 'results'   => $results
             );
 
@@ -270,15 +259,6 @@ class v090APIControllerProvider implements ControllerProviderInterface {
 
             $q->orderByListingDatetime(\ModelCriteria::DESC);
 
-            $total = $q->count();
-
-            if ($total > 0) {
-                $lastpage = ceil($total / $itemsperpage);
-            } else {
-                $page     = 1;
-                $lastpage = 1;
-            }
-
             $q->offset($itemsperpage * ($page-1))
               ->limit($itemsperpage);
 
@@ -294,8 +274,6 @@ class v090APIControllerProvider implements ControllerProviderInterface {
                 'sell-or-buy' => $type,
                 'count'       => $count,
                 'page'        => $page,
-                'last_page'   => $lastpage,
-                'total'       => $total,
                 'results'     => $results
             );
 
@@ -333,15 +311,6 @@ class v090APIControllerProvider implements ControllerProviderInterface {
                 }
             }
 
-            $total = $q->count();
-
-            if ($total > 0) {
-                $lastpage = ceil($total / $itemsperpage);
-            } else {
-                $page     = 1;
-                $lastpage = 1;
-            }
-
             $q->offset($itemsperpage * ($page-1))
               ->limit($itemsperpage)
               ->addAscendingOrderByColumn('name');
@@ -356,8 +325,6 @@ class v090APIControllerProvider implements ControllerProviderInterface {
             $response = array(
                 'count'     => $count,
                 'page'      => $page,
-                'last_page' => $lastpage,
-                'total'     => $total,
                 'results'   => $results
             );
 
@@ -390,15 +357,6 @@ class v090APIControllerProvider implements ControllerProviderInterface {
                 $q->filterByDiscipline($disc);
             }
 
-            $total = $q->count();
-
-            if ($total > 0) {
-                $lastpage = ceil($total / $itemsperpage);
-            } else {
-                $page     = 1;
-                $lastpage = 1;
-            }
-
             $q->offset($itemsperpage * ($page-1))
               ->limit($itemsperpage);
 
@@ -412,8 +370,6 @@ class v090APIControllerProvider implements ControllerProviderInterface {
             $response = array(
                 'count'     => $count,
                 'page'      => $page,
-                'last_page' => $lastpage,
-                'total'     => $total,
                 'results'   => $results
             );
 
